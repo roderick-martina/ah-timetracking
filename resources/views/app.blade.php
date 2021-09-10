@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="robots" content="noindex">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="{{ mix('/build/css/app.css') }}" rel="stylesheet"/>
     <script src="{{ mix('/build/js/app.js') }}" defer></script>
-    <meta name="robots" content="noindex">
 </head>
 <body class="font-sans antialiased">
 @inertia
