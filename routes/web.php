@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Settings\SettingsController;
+use App\Http\Controllers\TimeTracking\TimeTrackingController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -33,6 +34,13 @@ Route::middleware(['auth', 'verified'])
             ->prefix('dashboard')
             ->group(function () {
                 Route::get('/', [DashboardController::class, 'index'])->name('index');
+            });
+
+        // Time-tracking routes...
+        Route::name('TimeTracking.')
+            ->prefix('time-tracking')
+            ->group(function () {
+                Route::get('/', [TimeTrackingController::class, 'index'])->name('index');
             });
 
         // Settings routes...

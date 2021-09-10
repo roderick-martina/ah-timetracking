@@ -29,7 +29,7 @@ const FormSection = ({heading, description, onSubmit, children} : IProps) => {
                                     {children}
                                 </div>
                                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                    <button type="submit" className={`btn`}>Submit</button>
+                                    <button type="submit" className={`btn`}>Opslaan</button>
                                 </div>
                             </div>
                         </form>

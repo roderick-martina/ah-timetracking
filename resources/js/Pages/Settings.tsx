@@ -38,11 +38,11 @@ interface IPasswordConfirmError {
 }
 
 const Settings = ({route_name, auth, errors}: IDefaultProps) => {
-    const profileHeading = 'Personal Information'
-    const passwordHeading = 'Update Password'
-    const passwordSubText = 'Ensure your account is using a long, random password to stay secure'
-    const twoFaHeading = 'Two Factor Authentication'
-    const twoFaSubText = 'Add additional security to your account using two factor authentication.'
+    const profileHeading = 'Mijn profiel'
+    const passwordHeading = 'Wachtwoord wijzigen'
+    const passwordSubText = ''
+    const twoFaHeading = 'Tweefactorauthenticatie'
+    const twoFaSubText = 'Voeg extra beveiliging toe aan uw account met behulp van tweefactorauthenticatie.'
 
     const {notify} = useAppContext()
 
@@ -260,7 +260,7 @@ const Settings = ({route_name, auth, errors}: IDefaultProps) => {
                         <div className="col-span-6 sm:col-span-3">
                             <FormInput
                                 id={"first_name"}
-                                label={'First name'}
+                                label={'Voornaam'}
                                 type={'text'}
                                 value={profileValues.first_name}
                                 onChange={handleProfileChange}
@@ -270,7 +270,7 @@ const Settings = ({route_name, auth, errors}: IDefaultProps) => {
                         <div className="col-span-6 sm:col-span-3">
                             <FormInput
                                 id={"last_name"}
-                                label={'Last name'}
+                                label={'Achternaam'}
                                 type={'text'}
                                 value={profileValues.last_name}
                                 onChange={handleProfileChange}
@@ -295,7 +295,7 @@ const Settings = ({route_name, auth, errors}: IDefaultProps) => {
                         <div className="col-span-6 sm:col-span-5">
                             <FormInput
                                 id={"current_password"}
-                                label={'Current Password'}
+                                label={'Huidige wachtwoord'}
                                 type={'password'}
                                 value={passwordValues.current_password}
                                 onChange={handlePasswordChange}
@@ -305,7 +305,7 @@ const Settings = ({route_name, auth, errors}: IDefaultProps) => {
                         <div className="col-span-6 sm:col-span-5">
                             <FormInput
                                 id={"password"}
-                                label={'New Password'}
+                                label={'Nieuw wachtwoord'}
                                 type={'password'}
                                 value={passwordValues.password}
                                 onChange={handlePasswordChange}
@@ -315,7 +315,7 @@ const Settings = ({route_name, auth, errors}: IDefaultProps) => {
                         <div className="col-span-6 sm:col-span-5">
                             <FormInput
                                 id={"password_confirmation"}
-                                label={'Confirm Password'}
+                                label={'Wachtwoord bevestigen'}
                                 type={'password'}
                                 value={passwordValues.password_confirmation}
                                 onChange={handlePasswordChange}
@@ -325,97 +325,97 @@ const Settings = ({route_name, auth, errors}: IDefaultProps) => {
                 </FormSection>
 
                 {/* 2fa section*/}
-                <AppSection heading={twoFaHeading} subText={twoFaSubText}>
-                    <div className="grid grid-cols-6 gap-2">
-                        <div className="col-span-6 sm:col-span-5">
-                            {auth.user.two_factor_enabled ? (
-                                <h3 className={'text-lg font-medium text-gray-900'}>
-                                    You have enabled two factor authentication.
-                                </h3>
-                            ) : (
-                                <h3 className={'text-lg font-medium text-gray-900'}>
-                                    You have not enabled two factor authentication.
-                                </h3>
-                            )}
-                        </div>
+                {/*<AppSection heading={twoFaHeading} subText={twoFaSubText}>*/}
+                {/*    <div className="grid grid-cols-6 gap-2">*/}
+                {/*        <div className="col-span-6 sm:col-span-5">*/}
+                {/*            {auth.user.two_factor_enabled ? (*/}
+                {/*                <h3 className={'text-lg font-medium text-gray-900'}>*/}
+                {/*                    You have enabled two factor authentication.*/}
+                {/*                </h3>*/}
+                {/*            ) : (*/}
+                {/*                <h3 className={'text-lg font-medium text-gray-900'}>*/}
+                {/*                    You have not enabled two factor authentication.*/}
+                {/*                </h3>*/}
+                {/*            )}*/}
+                {/*        </div>*/}
 
-                        <div className="col-span-6 sm:col-span-5 text-gray-600">
-                            <p className={'text-sm'}>
-                                When two factor authentication is enabled, you will be prompted for
-                                a secure, random token during authentication. You may retrieve this token from your
-                                phone's Google Authenticator application.</p>
-                        </div>
+                {/*        <div className="col-span-6 sm:col-span-5 text-gray-600">*/}
+                {/*            <p className={'text-sm'}>*/}
+                {/*                When two factor authentication is enabled, you will be prompted for*/}
+                {/*                a secure, random token during authentication. You may retrieve this token from your*/}
+                {/*                phone's Google Authenticator application.</p>*/}
+                {/*        </div>*/}
 
-                        {auth.user.two_factor_enabled && (
-                            <>
-                                {qrCode !== null && (
-                                    <div className="col-span-6 sm:col-span-5 text-gray-600">
-                                        <p className={'text-sm font-semibold'}>
-                                            Two factor authentication is now enabled.
-                                            Scan the
-                                            following
-                                            QR code using your
-                                            phone's
-                                            authenticator application.</p>
-                                    </div>
-                                )}
-                                <div className="col-span-6 sm:col-span-5 text-gray-600">
-                                    <div dangerouslySetInnerHTML={{__html: qrCode}}/>
-                                </div>
-                                {showRecoveryCodes && (
-                                    <>
-                                        <div className="col-span-6 sm:col-span-5 text-gray-600">
-                                            <p className={'text-sm'}>Store these recovery codes in a secure password
-                                                manager. They can be used to recover access to your account if your two
-                                                factor authentication device is lost.</p>
-                                        </div>
-                                        <ul
-                                            className="col-span-6 sm:col-span-5 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg"
-                                        >
-                                            {recoveryCodes.map((code, index) => (
-                                                <li key={`code-${index}`}>{code}</li>
-                                            ))}
-                                        </ul>
-                                    </>
-                                )}
-                            </>
-                        )}
+                {/*        {auth.user.two_factor_enabled && (*/}
+                {/*            <>*/}
+                {/*                {qrCode !== null && (*/}
+                {/*                    <div className="col-span-6 sm:col-span-5 text-gray-600">*/}
+                {/*                        <p className={'text-sm font-semibold'}>*/}
+                {/*                            Two factor authentication is now enabled.*/}
+                {/*                            Scan the*/}
+                {/*                            following*/}
+                {/*                            QR code using your*/}
+                {/*                            phone's*/}
+                {/*                            authenticator application.</p>*/}
+                {/*                    </div>*/}
+                {/*                )}*/}
+                {/*                <div className="col-span-6 sm:col-span-5 text-gray-600">*/}
+                {/*                    <div dangerouslySetInnerHTML={{__html: qrCode}}/>*/}
+                {/*                </div>*/}
+                {/*                {showRecoveryCodes && (*/}
+                {/*                    <>*/}
+                {/*                        <div className="col-span-6 sm:col-span-5 text-gray-600">*/}
+                {/*                            <p className={'text-sm'}>Store these recovery codes in a secure password*/}
+                {/*                                manager. They can be used to recover access to your account if your two*/}
+                {/*                                factor authentication device is lost.</p>*/}
+                {/*                        </div>*/}
+                {/*                        <ul*/}
+                {/*                            className="col-span-6 sm:col-span-5 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg"*/}
+                {/*                        >*/}
+                {/*                            {recoveryCodes.map((code, index) => (*/}
+                {/*                                <li key={`code-${index}`}>{code}</li>*/}
+                {/*                            ))}*/}
+                {/*                        </ul>*/}
+                {/*                    </>*/}
+                {/*                )}*/}
+                {/*            </>*/}
+                {/*        )}*/}
 
-                        <div className="col-span-6 sm:col-span-5">
-                            {auth.user.two_factor_enabled ? (
-                                <>
-                                    {showRecoveryCodes ? (
-                                        <button
-                                            type="button"
-                                            className="btn-secondary"
-                                            onClick={regenerateRecoveryCode}
-                                        >
-                                            Regenerate Recovery Codes
-                                        </button>
-                                    ) : (
-                                        <button
-                                            type="button"
-                                            className="btn-secondary"
-                                            onClick={showCodes}
-                                        >
-                                            Show Recovery Codes
-                                        </button>
-                                    )}
+                {/*        <div className="col-span-6 sm:col-span-5">*/}
+                {/*            {auth.user.two_factor_enabled ? (*/}
+                {/*                <>*/}
+                {/*                    {showRecoveryCodes ? (*/}
+                {/*                        <button*/}
+                {/*                            type="button"*/}
+                {/*                            className="btn-secondary"*/}
+                {/*                            onClick={regenerateRecoveryCode}*/}
+                {/*                        >*/}
+                {/*                            Regenerate Recovery Codes*/}
+                {/*                        </button>*/}
+                {/*                    ) : (*/}
+                {/*                        <button*/}
+                {/*                            type="button"*/}
+                {/*                            className="btn-secondary"*/}
+                {/*                            onClick={showCodes}*/}
+                {/*                        >*/}
+                {/*                            Show Recovery Codes*/}
+                {/*                        </button>*/}
+                {/*                    )}*/}
 
-                                    <button
-                                        type="button"
-                                        className="btn-danger ml-3"
-                                        onClick={deleteTwoFa}
-                                    >
-                                        Disable
-                                    </button>
-                                </>
-                            ) : (
-                                <button onClick={enableTwoFa} className={`btn`}>Enable</button>
-                            )}
-                        </div>
-                    </div>
-                </AppSection>
+                {/*                    <button*/}
+                {/*                        type="button"*/}
+                {/*                        className="btn-danger ml-3"*/}
+                {/*                        onClick={deleteTwoFa}*/}
+                {/*                    >*/}
+                {/*                        Disable*/}
+                {/*                    </button>*/}
+                {/*                </>*/}
+                {/*            ) : (*/}
+                {/*                <button onClick={enableTwoFa} className={`btn`}>Enable</button>*/}
+                {/*            )}*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</AppSection>*/}
             </div>
             <Modal active={confirmModal.active} title={'Password confirmation'} handleHideModal={hideModal}
                    onSubmit={submitConfirmPassword}>

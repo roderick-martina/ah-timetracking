@@ -6,6 +6,10 @@
     @apply shadow-sm focus:ring-primary focus:border-primary block w-full sm:text-sm border-gray-300 rounded-md;
 }
 
+.form-checkbox {
+    @apply focus:ring-primary-lighter h-4 w-4 text-primary border-gray-300 rounded;
+}
+
 .btn {
     @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-lighter focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
 }
