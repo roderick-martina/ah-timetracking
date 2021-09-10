@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{$title}}</title>
-
-    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/app.css') }}">
+    
+    <link href="{{ asset('build/css/app.css') }}" rel="stylesheet">
 </head>
 <body class="antialiased">
 {{ $slot }}

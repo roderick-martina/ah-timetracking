@@ -4,7 +4,7 @@ import {SetStateAction} from "react";
 
 interface IDefaultValue {
     mobileNavOpen: boolean;
-    handleMobileNavToggle: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    handleMobileNavToggle: (event?: React.MouseEvent<HTMLButtonElement>) => void;
     notificationState: INotification | null;
     notify: (data: INotification) => void;
     modalActive: boolean;
