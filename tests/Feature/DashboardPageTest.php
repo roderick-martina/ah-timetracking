@@ -26,9 +26,6 @@ it('will show timetracking dates', function () {
     $this
         ->actingAs($user)
         ->get(route('dashboard.index'))
-        ->assertInertia(fn(\ClaudioDekker\Inertia\Assert $page) => $page
-        ->has('')
-        )
         ->assertStatus(200);
 
 });
