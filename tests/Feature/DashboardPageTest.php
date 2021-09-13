@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\User;
-use ClaudioDekker\Inertia\Assert;
+use Inertia\Testing\Assert;
 
 beforeEach(function () {
     Artisan::call('db:seed', ['--class' => 'SuperUserSeeder']);
@@ -13,7 +13,7 @@ it('can render dashboard page', function () {
         ->actingAs($user)
         ->get(route('dashboard.index'))
         ->assertInertia(fn(Assert $page) => $page
-            ->component('Dashboard')
+            ->component('Dashboard/index')
         )
         ->assertStatus(200);
 //        ->assertInertia(fn(\ClaudioDekker\Inertia\Assert $page) => $page
